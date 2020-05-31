@@ -1,0 +1,9 @@
+{% macro displayTrendingNews(news_list) %}
+
+    {% for news in news_list %}
+        <div>
+            {{ news.title }}
+            <p>By {{ news.author }}</p>
+            {{ news.description }}
+            {{ news.publishedAt }}
+        </div>
