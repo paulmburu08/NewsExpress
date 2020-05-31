@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NewsExpress</title>
-</head>
-<body>
-    {% block content %}
+{% extends 'bootstrap/base.html'%}
 
-    {% endblock %}
-</body>
-</html>
+<!-- Navbar block  --> 
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}

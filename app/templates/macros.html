@@ -1,7 +1,7 @@
 {% macro displayTrendingNews(news_list) %}
 
     {% for news in news_list %}
-        <div>
+        <div class="card">
             {{ news.title }} <br>
             <p>By {{ news.author }}</p> <br>
             {{ news.description }} <br>
