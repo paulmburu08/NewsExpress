@@ -13,7 +13,7 @@ def get_headlines(country):
     '''
     Function that gets the json response to our url request
     '''
-    get_headlines_url = headlines_url(country,api_key)
+    get_headlines_url = headlines_url.format(country,api_key)
 
     with urllib.request.urlopen(get_headlines_url) as url:
         get_headlines_data = url.read()
