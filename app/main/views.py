@@ -1,6 +1,6 @@
 from . import main
 from flask import render_template
-from ..requests import get_headlines,get_category
+from ..requests import get_headlines,get_category,get_sources
 
 @main.route('/')
 def index():
@@ -33,3 +33,12 @@ def category():
 
     return render_template('navbar.html',business = business, entertainment = entertainment, health = health, science = science, sports = sports, technology = technology)
 
+@main.route('/sources')
+def sources():
+    '''
+    View root page function that returns the index page and its data
+    '''
+
+    bbc = get_sources('bbc-news')
+
+    return render_template('bbc.html', bbc = bbc)

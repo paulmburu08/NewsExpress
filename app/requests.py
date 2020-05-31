@@ -5,15 +5,15 @@ api_key = None
 headlines_url = None
 search_headlines = None
 category_url = None
-articles_url = None
+sources_url = None
 
 def configure_request(app):
-    global api_key,headlines_url,search_headlines,category_url,articles_url
+    global api_key,headlines_url,search_headlines,category_url,articles_url,sources_url
     api_key = app.config['NEWS_API_KEY']
     headlines_url = app.config['TOP_HEADLINES_URL']
     search_headlines = app.config['SEARCH_HEADLINES']
     category_url = app.config['CATEGORY_URL']
-    articles_url = app.config['ARTICLES_URL']
+    sources_url = app.config['SOURCES_URL']    
 
 def get_headlines(country):
     '''
@@ -38,6 +38,7 @@ def process_results(headlines_list):
     headlines_result = []
 
     for item in headlines_list:
+        source = item.get('source')
         author = item.get('author')
         title = item.get('title')
         description = item.get('description')
@@ -46,7 +47,7 @@ def process_results(headlines_list):
         publishedAt = item.get('publishedAt')
 
         if urlToImage:
-            new_headline = TopHeadline(author,title,description,url,urlToImage,publishedAt)
+            new_headline = TopHeadline(source,author,title,description,url,urlToImage,publishedAt)
             headlines_result.append(new_headline)
 
     return headlines_result
@@ -69,5 +70,24 @@ def get_category(country,category):
             category_results = process_results(category_list)
 
     return category_results
+
+def get_sources(source):
+    '''
+    Function that gets the json response to our url request
+    '''
+
+    get_sources_url = sources_url.format(source,api_key)
+
+    with urllib.request.urlopen(get_sources_url) as url:
+        get_sources_data = url.read()
+        get_sources_response = json.loads(get_sources_data)
+
+        sources_results = None
+
+        if get_sources_response['articles']:
+            sources_list = get_sources_response['articles']
+            sources_results = process_results(sources_list)
+
+    return sources_results
 
     

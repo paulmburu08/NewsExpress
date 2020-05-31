@@ -2,8 +2,9 @@
 
     {% for news in news_list %}
         <div class="card">
+            {{ news.source.name }} <br><br>
             {{ news.title }} <br>
-            <p>By {{ news.author }}</p> <br>
+            By {{ news.author }}<br>
             {{ news.description }} <br>
             {{ news.publishedAt }} <br>
         </div>
