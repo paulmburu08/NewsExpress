@@ -2,8 +2,11 @@
 
     {% for news in news_list %}
         <div>
-            {{ news.title }}
-            <p>By {{ news.author }}</p>
-            {{ news.description }}
-            {{ news.publishedAt }}
+            {{ news.title }} <br>
+            <p>By {{ news.author }}</p> <br>
+            {{ news.description }} <br>
+            {{ news.publishedAt }} <br>
         </div>
+    {% endfor %}
+
+{% endmacro %}
