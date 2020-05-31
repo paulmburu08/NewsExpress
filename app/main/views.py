@@ -12,4 +12,4 @@ def index():
     us_news = get_headlines('us')
     print(us_news)
     title = 'Welcome to newsExpress'
-    return render_template('index.html' title=title, headlines = us_news)
+    return render_template('index.html', title = title, headlines = us_news)
