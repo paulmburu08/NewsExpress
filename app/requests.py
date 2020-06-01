@@ -90,4 +90,23 @@ def get_sources(source):
 
     return sources_results
 
+def search_for_headlines(name):
+    '''
+    Function that gets the json response to our url request
+    '''
+
+    get_search_url = search_headlines.format(name,api_key)
+
+    with urllib.request.urlopen(get_search_url) as url:
+        get_search_data = url.read()
+        get_search_response = json.loads(get_search_data)
+
+        search_results = None
+
+        if get_search_response['articles']:
+            search_list = get_search_response['articles']
+            search_results = process_results(search_list)
+
+    return search_results
+
     

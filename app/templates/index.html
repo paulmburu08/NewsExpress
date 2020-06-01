@@ -2,11 +2,18 @@
 {% import 'macros.html' as macro %}
 
 {% block content %}
-    <div class="body">
+<div class="home">
+    <form class="form-inline">
+      <input class="form-control form-control-sm" name="article_query" type="search" placeholder="Search article" aria-label="Search"> &nbsp;
+      <button class="btn btn-primary btn-sm" type="submit">Search</button>
+    </form>
+  
+    <div>
         <h3>Headlines</h3>
         <ul>
             {{ macro.displayTrendingNews(usheadlines) }}
         </ul>
     </div>
+</div>
 {% endblock %}
         

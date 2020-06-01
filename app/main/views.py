@@ -1,6 +1,6 @@
 from . import main
-from flask import render_template
-from ..requests import get_headlines,get_category,get_sources
+from flask import render_template,request,redirect,url_for
+from ..requests import get_headlines,get_category,get_sources,search_for_headlines
 
 @main.route('/')
 def index():
@@ -11,7 +11,13 @@ def index():
     #getting news headlines
     us_news = get_headlines('us')
     title = 'Welcome to newsExpress'
-    return render_template('index.html', title = title, usheadlines = us_news)
+
+    search_article = request.args.get('article_query')
+
+    if search_article:
+        return redirect(url_for('main.article_search', article_name = search_article))
+    else:
+        return render_template('index.html', title = title, usheadlines = us_news)
 
 @main.route('/germany')
 def country1():
@@ -65,7 +71,7 @@ def category1():
     View root page function that returns the index page and its data
     '''
     business = get_category('us','business')
-    return render_template('business.html',business = business, entertainment = entertainment, health = health, science = science, sports = sports, technology = technology)
+    return render_template('business.html',business = business)
 @main.route('/entertainment')
 def category2():
     entertainment = get_category('us','entertainment')
@@ -86,3 +92,14 @@ def category5():
 def category6():
     technology = get_category('us','technology')
     return render_template('technology.html', technology = technology)
+
+@main.route('/<article_name>')
+def article_search(article_name):
+    '''
+    View function to display the search results
+    '''
+    search_name_list = article_name.split(" ")
+    search_name_format = '+'.join(search_name_list)
+    searched_article = search_for_headlines(search_name_format)
+    
+    return render_template('search.html', articles = searched_article)
