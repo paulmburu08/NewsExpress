@@ -13,7 +13,7 @@ Choose which category you want to see news on.
 Search an article you want to view.
 
 Project Set-up Instructions
-
+follow website URL
 
 Development and modifications
 Open github and clone the repository into your local computer.
