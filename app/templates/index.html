@@ -2,9 +2,11 @@
 {% import 'macros.html' as macro %}
 
 {% block content %}
-    <h3>Headlines</h3>
-    <ul>
-        {{ macro.displayTrendingNews(usheadlines) }}
-    </ul>
+    <div class="body">
+        <h3>Headlines</h3>
+        <ul>
+            {{ macro.displayTrendingNews(usheadlines) }}
+        </ul>
+    </div>
 {% endblock %}
         

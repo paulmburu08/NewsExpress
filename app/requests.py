@@ -8,7 +8,7 @@ category_url = None
 sources_url = None
 
 def configure_request(app):
-    global api_key,headlines_url,search_headlines,category_url,articles_url,sources_url
+    global api_key,headlines_url,search_headlines,category_url,sources_url
     api_key = app.config['NEWS_API_KEY']
     headlines_url = app.config['TOP_HEADLINES_URL']
     search_headlines = app.config['SEARCH_HEADLINES']
