@@ -11,10 +11,3 @@ class TopHeadline:
         self.url = url
         self.urlToImage = urlToImage
         self.publishedAt = publishedAt
-
-# class Articles:
-#     '''
-#     Articles class to define Articles object
-#     '''
-
-#     def __init__(self,)

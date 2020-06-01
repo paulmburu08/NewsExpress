@@ -19,6 +19,8 @@ def index():
     else:
         return render_template('index.html', title = title, usheadlines = us_news)
 
+
+# functions that returns the countries pages and their respective data
 @main.route('/germany')
 def country1():
     german_news = get_headlines('de')
@@ -36,11 +38,10 @@ def country4():
     saudi_news = get_headlines('sa')
     return render_template('saudi.html',saheadlines = saudi_news)
 
+
+# functions that returns the sources pages and their respective data
 @main.route('/bbc')
 def source1():
-    '''
-    View root page function that returns the index page and its data
-    '''
     bbc = get_sources('bbc-news')
     return render_template('bbc.html', bbc = bbc)
 @main.route('/aljazeera')
@@ -65,11 +66,9 @@ def source6():
     return render_template('usa.html', usa = usa)
 
 
+# functions that returns the categogry pages and their respective data
 @main.route('/business')
 def category1():
-    '''
-    View root page function that returns the index page and its data
-    '''
     business = get_category('us','business')
     return render_template('business.html',business = business)
 @main.route('/entertainment')
@@ -93,7 +92,7 @@ def category6():
     technology = get_category('us','technology')
     return render_template('technology.html', technology = technology)
 
-@main.route('/<article_name>')
+@main.route('/search/<article_name>')
 def article_search(article_name):
     '''
     View function to display the search results

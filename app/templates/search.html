@@ -2,7 +2,7 @@
 {% import 'macros.html' as macro %}
 
 {% block content %}
-    <h3 class="heading"><b> Found {{ articles| count }} matches </b> </h3><br>
+    <h2 class="heading"><b> Found {{ articles| count }} matches </b> </h2><br>
     <ul>
         {{ macro.displayTrendingNews(articles) }}
     </ul>

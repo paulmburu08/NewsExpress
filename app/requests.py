@@ -34,6 +34,9 @@ def get_headlines(country):
     return headlines_results
 
 def process_results(headlines_list):
+    '''
+    Function that gets the json response to our url request
+    '''
 
     headlines_result = []
 
