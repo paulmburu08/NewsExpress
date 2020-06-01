@@ -1,5 +1,9 @@
+html, body{
+    overflow-x: hidden;
+}
+
 body{
-    background-color: blueviolet;
+    background-color: skyblue;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -7,8 +11,15 @@ body{
     display: inline-block;
 }
 
+.heading{
+    text-align: center;
+}
+
 .card{
-    background-color: blueviolet;
+    background-color: white;
+    margin-right: 70px;
+    margin-left: 10px;
+    margin-bottom: 30px;
 }
 
 .navbar-brand{
