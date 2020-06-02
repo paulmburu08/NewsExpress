@@ -3,7 +3,7 @@ html, body{
 }
 
 body{
-    background-color: skyblue;
+    background-color: black;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -14,6 +14,7 @@ body{
 .heading{
     text-align: center;
     font-family: 'Abril Fatface', cursive;
+    color: white;
 }
 
 .card{

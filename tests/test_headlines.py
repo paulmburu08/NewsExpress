@@ -10,7 +10,11 @@ class HeadlinesTest(unittest.TestCase):
         '''
         Set up method that will run before every Test
         '''
-        self.new_headline = TopHeadline('Paul','Car stolen','My car was stolen by the police','/sllajdj','/sasdsea',"2020-05-30T18:38:33Z")
+        self.new_headline = TopHeadline('Paul','Car stolen','My car was stolen by the police','/sllajdj','/sasdsea','sgsha',"2020-05-30T18:38:33Z")
 
-    def test_instance(self):
+    def test_init(self):
+        '''
+        Test to check if new_headline is an instance of Topheadline
+        '''
         self.assertTrue(isinstance(self.new_headline,TopHeadline))
+
