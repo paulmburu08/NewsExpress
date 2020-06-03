@@ -1,3 +1,4 @@
+[![codebeat badge](https://codebeat.co/badges/891fd6e4-9093-4d82-9b68-cd424e92e652)](https://codebeat.co/projects/github-com-paulmburu08-newsexpress-master)
 # NEWSEXPRESS
 An application where users get daily news articles from different news sources.
 
